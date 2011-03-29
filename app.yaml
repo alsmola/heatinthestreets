@@ -1,0 +1,26 @@
+application: theheatisinthestreets
+version: 2
+runtime: python
+api_version: 1
+builtins:
+- remote_api: on
+- datastore_admin: on
+
+handlers:
+    
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /images
+  static_dir: images
+
+- url: /scripts
+  static_dir: scripts
+
+- url: /admin/.*
+  script: admin.py
+
+
+- url: .*
+  script: main.py
+

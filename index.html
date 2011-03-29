@@ -1,0 +1,54 @@
+<html>
+<head>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">google.load("jquery", "1.4.3");</script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js">
+	
+	<script type="text/javascript" src="scripts/jquery.progressbar.min.js"></script>	
+	<script type="text/javascript" src="scripts/script.js"></script>
+	<script type="text/javascript">
+    	function init() {
+    		updateMap();
+    	}
+	</script>
+    <title>Heat in the Streets</title>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+</head>
+<body onload="init()">
+	<div id="content">
+		<div id="header">
+        </div>
+
+		<div id="map">&nbsp;</div>
+		<div id="menu">
+            <select id="category">		    
+    		{% for item in category_list.items %}
+    		    <option value="{{item.0}}">{{item.1.name}}</option>
+    		{% endfor %}
+    		</select>
+    		in
+            <select id="metro">
+                {% for item in metro_list.items %}
+        		    <option value="{{item.0}}|{{item.1.lat.start}},{{item.1.lat.end}},{{item.1.lng.start}},{{item.1.lng.end}}">{{item.1.name}}</option>
+        		{% endfor %}
+            </select>
+		</div>
+		
+		
+		
+		<div id="stats">
+		    <div id="stats_title"></div>
+		    <div id="stats_table_container"><table id="stats_table"></table></div>
+		</div>
+		<div id="footer">
+    		<div id="footer-expander">About</div>
+        	<div id="footer-content">
+        	    Heat In the Streets is a heatmap-style visualization of nightlife in major metropolitan cities. It's uses data from the <a href="http://yelp.com">Yelp</a> <a href="http://www.yelp.com/developers/documentation/v2/overview">API</a>, and is based on categories associated with businesses. It uses the open-source <a href="https://code.google.com/p/gheat-ae/">GHeatAE</a> library to generate the heat map tile images. It was created by <a href="http://alexsmolen.com">Alex Smolen<a> as a project for the <a href="http://courses.ischool.berkeley.edu/i290-iol/f10/">Information Organization Lab</a> at the <a href="http://berkeley.edu/">UC Berkeley</a> <a href="http://www.ischool.berkeley.edu/">School of Information</a>.
+        	</div>
+    	</div>
+	</div>
+</body>
+</html>
+	
